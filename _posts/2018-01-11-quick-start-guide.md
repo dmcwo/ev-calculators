@@ -1,24 +1,87 @@
 ---
 layout: post
-title:  "Let's test spoilers"
-author: sal
-categories: [ Jekyll, tutorial ]
-image: assets/images/12.jpg
+title:  "Electric vs Gas Cost Calculator"
+author: dmcwo
+categories: [ ev, gas, calculator ]
+image: 
 featured: true
 hidden: true
 ---
 
-Director Roland Suso Richter's enigmatic psychological thriller (direct to video/DVD) was based upon screenwriter Michael Cooney's own play "Point of Death" - a title that gave away the film's entire plot twist premise.
+<div class="container mt-5">
+		<h1 class="text-center mb-4">Electric vs Gas Cost Calculator</h1>
+		<form>
+			<div class="form-group">
+				<label for="electric-cost">Electricity Cost (per kWh):</label>
+				<input type="number" class="form-control" id="electric-cost" step="0.01" required oninput="calculateCost()" value="0.40">
+			</div>
+			<div class="form-group">
+				<label for="gas-cost">Gasoline Cost (per gallon):</label>
+				<input type="number" class="form-control" id="gas-cost" step="0.01" required oninput="calculateCost()" value="4.20">
+			</div>
+			<div class="form-group">
+				<label for="electric-efficiency">Electric Car Efficiency (miles per kWh):</label>
+				<input type="number" class="form-control" id="electric-efficiency" step="0.01" required oninput="calculateCost()" value="4.0">
+			</div>
+			<div class="form-group">
+				<label for="gas-efficiency">Gas Car Efficiency (miles per gallon):</label>
+				<input type="number" class="form-control" id="gas-efficiency" step="0.01" required oninput="calculateCost()" value="30.0">
+			</div>
+			<div class="form-group">
+				<label for="miles-driven">Estimated Miles Driven per Month:</label>
+				<input type="number" class="form-control" id="miles-driven" step="0.01" required oninput="calculateCost()" value="1000">
+			</div>
+			<h2 class="text-center mb-4">Electric Car Costs</h2>
+			<div class="form-group">
+				<label for="electric-cost-per-mile">Electric Car Cost per Mile:</label>
+				<input type="text" class="form-control" id="electric-cost-per-mile" readonly>
+			</div>
+			<div class="form-group">
+				<label for="electric-cost-per-month">Electric Car Cost per Month:</label>
+				<input type="text" class="form-control" id="electric-cost-per-month" readonly>
+			</div>
+			<h2 class="text-center mb-4">Gas Car Costs</h2>
+			<div class="form-group">
+				<label for="gas-cost-per-mile">Gas Car Cost per Mile:</label>
+				<input type="text" class="form-control" id="gas-cost-per-mile" readonly>
+			</div>
+			<div class="form-group">
+				<label for="gas-cost-per-month">Gas Car Cost per Month:</label>
+				<input type="text" class="form-control" id="gas-cost-per-month" readonly>
+			</div>
+		</form>
+	</div>
 
-As in many similar films, such as Jacob's Ladder (1990), Soul Survivors (2001), and The Butterfly Effect (2004), events and people were thoroughly distorted and confused because the protagonist was at the point of death. The tagline was misleading:
-
-"When You Don't Have a Memory, How Can You Remember Who to Trust?"
-
-The mind-warping film opened with a hospital patient Simon Cable (Ryan Phillippe) awakening in a <span class="spoiler"> hospital with little knowledge (amnesia perhaps?) of what had happened, and why he was there, etc. He was told by attending Dr. Jeremy Newman (Stephen Rea) that it was July 29, 2002 (Simon thought it was the year 2000 - he was confused - he heard a doctor say 20:00 hours!) and that he had died for two minutes from cardiac arrest following the near-fatal accident -- but he had been revived ("You're as good as new").</span> Dr. Newman: "Simon, this is the 29th of July. The year is 2002. And your wife, whose name is Anna, is waiting outside." 
-
-(The doctor left off four crucial additional words, revealed in the film's ending.) (Spoiler: Simon had died and was not resuscitated!).
-
-A major clue to everything that truly happened was the scene that played next under the credits - hospital staff failed to bring a patient back to life with a defibrillator after a car accident. Chest compressions failed and there was no pulse. A second major clue was provided by hospital orderly Travis (Stephen Graham): <span class="spoiler">Everybody dies. No mystery there. But why and how everyone dies. Now, there's a mystery worth solving. Probably the biggest mystery there is.</span>
+	<!-- add Bootstrap and jQuery scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			// call calculateCost function on page load
+			calculateCost();
+		});
+		
+		function calculateCost() {
+			const electricCost = parseFloat(document.getElementById("electric-cost").value);
+			const gasCost = parseFloat(document.getElementById("gas-cost").value);
+			const electricEfficiency = parseFloat(document.getElementById("electric-efficiency").value);
+			const gasEfficiency = parseFloat(document.getElementById("gas-efficiency").value);
+			const milesDriven = parseFloat(document.getElementById("miles-driven").value);
+			
+			const electricCostPerMile = electricCost / electricEfficiency;
+			const electricCostPerMonth = electricCostPerMile * milesDriven;
+			const gasCostPerMile = gasCost / gasEfficiency;
+			const gasCostPerMonth = gasCostPerMile * milesDriven;
+			
+			document.getElementById("electric-cost-per-mile").value = "$" + electricCostPerMile.toFixed(2);
+			document.getElementById("electric-cost-per-month").value = "$" + electricCostPerMonth.toFixed(2);
+			document.getElementById("gas-cost-per-mile").value = "$" + gasCostPerMile.toFixed(2);
+			document.getElementById("gas-cost-per-month").value = "$" + gasCostPerMonth.toFixed(2);
+		}
+		
+		window.onload = calculateCost;
+	</script>
 
 #### So how do we do spoilers?
 
