@@ -51,40 +51,13 @@ hidden: true
 			</div>
 		</form>
 	</div>
-
-	<!-- add Bootstrap and jQuery scripts -->
+<script src="{{ site.baseurl }}/assets/js/ev-calcultator.js"></script>
+<!-- add Bootstrap and jQuery scripts -->
+<!--
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			// call calculateCost function on page load
-			calculateCost();
-		});
-		
-		function calculateCost() {
-			const electricCost = parseFloat(document.getElementById("electric-cost").value);
-			const gasCost = parseFloat(document.getElementById("gas-cost").value);
-			const electricEfficiency = parseFloat(document.getElementById("electric-efficiency").value);
-			const gasEfficiency = parseFloat(document.getElementById("gas-efficiency").value);
-			const milesDriven = parseFloat(document.getElementById("miles-driven").value);
-			
-			const electricCostPerMile = electricCost / electricEfficiency;
-			const electricCostPerMonth = electricCostPerMile * milesDriven;
-			const gasCostPerMile = gasCost / gasEfficiency;
-			const gasCostPerMonth = gasCostPerMile * milesDriven;
-			
-			document.getElementById("electric-cost-per-mile").value = "$" + electricCostPerMile.toFixed(2);
-			document.getElementById("electric-cost-per-month").value = "$" + electricCostPerMonth.toFixed(2);
-			document.getElementById("gas-cost-per-mile").value = "$" + gasCostPerMile.toFixed(2);
-			document.getElementById("gas-cost-per-month").value = "$" + gasCostPerMonth.toFixed(2);
-		}
-		
-		window.onload = calculateCost;
-	</script>
+-->
+	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+<!--	<script></script>-->
 
-#### So how do we do spoilers?
 
-```html
-<span class="spoiler">My hidden paragraph here.</span>
-```
