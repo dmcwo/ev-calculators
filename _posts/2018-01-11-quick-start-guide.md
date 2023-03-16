@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Electric vs Gas Cost Calculator"
+title:  "Electric Car vs Gas Cost per Mile Calculator"
 author: dmcwo
 categories: [ ev, gas, calculator ]
 image: 
@@ -8,7 +8,6 @@ featured: true
 hidden: true
 ---
 <div class="container mt-5">
-		<h1 class="text-center mb-4">Electric vs Gas Cost Calculator</h1>
 		<form>
 			<div class="form-group">
 				<label for="electric-cost">Electricity Cost (per kWh):</label>
