@@ -8,8 +8,9 @@ featured: true
 hidden: true
 ---
 <div class="container mt-5">
-		<form>
-			<div class="form-group">
+<form>
+<div class="row">
+<div class="form-group">
 				<label for="electric-cost">Electricity Cost (per kWh):</label>
 				<input type="number" class="form-control" id="electric-cost" step="0.01" required oninput="calculateCost()" value="0.40">
 			</div>
@@ -29,7 +30,9 @@ hidden: true
 				<label for="miles-driven">Estimated Miles Driven per Month:</label>
 				<input type="number" class="form-control" id="miles-driven" step="0.01" required oninput="calculateCost()" value="1000">
 			</div>
-			<h2 class="text-center mb-4">Electric Car Costs</h2>
+			
+<div class="col-md-6">
+      <h2 class="text-center mb-4">Electric Car Costs</h2>
 			<div class="form-group">
 				<label for="electric-cost-per-mile">Electric Car Cost per Mile:</label>
 				<input type="text" class="form-control" id="electric-cost-per-mile" readonly>
@@ -46,9 +49,15 @@ hidden: true
 			<div class="form-group">
 				<label for="gas-cost-per-month">Gas Car Cost per Month:</label>
 				<input type="text" class="form-control" id="gas-cost-per-month" readonly>
-			</div>
-		</form>
-	</div>
+			</div>  
+</div>
+<div class="col-md-6">
+    
+</div>
+
+</div>		
+</form>
+</div>
 <script>
 $(document).ready(function() {
 // call calculateCost function on page load
