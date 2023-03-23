@@ -20,7 +20,7 @@ hidden: true
 				<input type="number" class="form-control" id="electric-efficiency" step="0.01" required oninput="calculateCost()" value="4.0">
                 </div>
     </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-6">
         <h2>Gas Powered Car</h2>
             <div class="form-group">
 				<label for="gas-cost">Gasoline Cost (per gallon):</label>
@@ -28,7 +28,8 @@ hidden: true
                 <label for="gas-efficiency">Gas Car Efficiency (miles per gallon):</label>
 				<input type="number" class="form-control" id="gas-efficiency" step="0.01" required oninput="calculateCost()" value="30.0">
 			</div>
-    <div class="col-md-6"></div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -65,7 +66,6 @@ hidden: true
 			</div>  
         </div>
     </div>
-</div>
 </form>
 </div>
 <script>
