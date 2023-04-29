@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Electric Car Charging Calculator</title>
+  </head>
+  <body>
+    <h1>Electric Car Charging Calculator</h1>
+    <form>
+      <label for="station-cost">Cost per kWh at charging station:</label>
+      <input type="number" id="station-cost" name="station-cost" value=".25"><br><br>
+      <label for="home-cost">Cost per kWh at home:</label>
+      <input type="number" id="home-cost" name="home-cost"  value=".25"><br><br>
+      <label for="station-speed">Charge rate at charging station (kW):</label>
+      <input type="number" id="station-speed" name="station-speed" value="6.6"><br><br>
+      <label for="home-speed">Charge rate at home (kW):</label>
+      <input type="number" id="home-speed" name="home-speed" value="7.4"><br><br>
+      <label for="station-fees">Fees associated with using public charging station:</label>
+      <input type="number" id="station-fees" name="station-fees" value="0"><br><br>
+      <label for="charge-hours">Total number of hours charging:</label>
+      <input type="number" id="charge-hours" name="charge-hours" value="1"><br><br>
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <br>
+    <h2>Results:</h2>
+    <p id="result"></p>
+    <script>
+      function calculate() {
+        const stationCost = parseFloat(document.getElementById("station-cost").value);
+        const homeCost = parseFloat(document.getElementById("home-cost").value);
+        const stationSpeed = parseFloat(document.getElementById("station-speed").value);
+        const homeSpeed = parseFloat(document.getElementById("home-speed").value);
+        const stationFees = parseFloat(document.getElementById("station-fees").value);
+        const chargeHours = parseFloat(document.getElementById("charge-hours").value);
+        
+        // Calculate the total cost of charging at the station
+        const stationTotal = (stationCost * stationSpeed * chargeHours) + stationFees;
+        
+        // Calculate the total cost of charging at home
+        const homeTotal = homeCost * homeSpeed * chargeHours;
+        
+        // Determine which is cheaper or if the costs are the same
+        let cheaper = "It is cheaper to charge at home.";
+        if (stationTotal < homeTotal) {
+          cheaper = "It is cheaper to charge at the public charging station.";
+        } else if (stationTotal === homeTotal) {
+          cheaper = "The cost is the same at the public charging station and at home.";
+        }
+        
+        // Display the results
+        document.getElementById("result").innerHTML = `Charging at the public station will cost $${stationTotal.toFixed(2)}, while charging at home will cost $${homeTotal.toFixed(2)}. ${cheaper}`;
+      }
+    </script>
+  </body>
+</html>
